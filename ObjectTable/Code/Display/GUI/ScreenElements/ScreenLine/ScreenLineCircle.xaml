@@ -1,0 +1,36 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+	mc:Ignorable="d"
+	x:Class="ObjectTable.ScreenLineCircle"
+	x:Name="UserControl" Height="50" Width="50">
+	<UserControl.Resources>
+		<RadialGradientBrush x:Key="gradient_blue">
+			<GradientStop Color="#FF00D6FF" Offset="0"/>
+			<GradientStop Color="#000056FF" Offset="1"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_green">
+			<GradientStop Color="#FF08FF00" Offset="0"/>
+			<GradientStop Color="#0008851B" Offset="1"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_red">
+			<GradientStop Color="#FFFF3A00" Offset="0"/>
+			<GradientStop Color="#00850808" Offset="1"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_white">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="#00000000" Offset="1"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_yellow">
+			<GradientStop Color="#FFFFEA00" Offset="0"/>
+			<GradientStop Color="#00000000" Offset="1"/>
+		</RadialGradientBrush>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<Ellipse x:Name="el_fill" Stroke="Black" Fill="{DynamicResource gradient_blue}"/>
+	</Grid>
+</UserControl>

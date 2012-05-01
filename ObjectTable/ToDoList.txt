@@ -1,0 +1,4 @@
+﻿LineElement: methoden für screenArrow in der linienerzeugung implementieren
+BeamerCalibrationWindow: ColorMove datenupdate und anzeige implementieren
+(neues) DepthCalibrationForm implementieren
+init-Wizard/Fenster implementieren

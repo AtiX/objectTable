@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<RecognitionSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TableDistance>2317</TableDistance>
+  <TableDistanceRange>25</TableDistanceRange>
+  <ObjectMinimalRadius>3</ObjectMinimalRadius>
+  <ObjectMaximalRadius>25</ObjectMaximalRadius>
+  <ObjectMaximalHeight>1000</ObjectMaximalHeight>
+  <HandMaximalHeight>1001</HandMaximalHeight>
+  <HandRecognitionDeltaAngle>0.01</HandRecognitionDeltaAngle>
+  <SaveDebugMaps>false</SaveDebugMaps>
+  <SaveDebugRotationBitmaps>false</SaveDebugRotationBitmaps>
+  <ObjectRecognitionGridSpacing>5</ObjectRecognitionGridSpacing>
+  <ObjectRecognitionRectIncrease>2</ObjectRecognitionRectIncrease>
+  <ObjectRecognitionNeighbourcountThreshold>0.3</ObjectRecognitionNeighbourcountThreshold>
+  <ObjectVideoBitmapEnlargement>0</ObjectVideoBitmapEnlargement>
+</RecognitionSettings>

@@ -1,0 +1,87 @@
+﻿<Window x:Class="ObjectTableForms.Forms.Screen.ScreenCalibrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Beamer Kalibrieren" Height="501" Width="439" Loaded="Window_Loaded">
+    <Grid>
+    	<Grid.Background>
+    		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    			<GradientStop Color="#FF52E2DE" Offset="0"/>
+    			<GradientStop Color="#FF183ED8" Offset="1"/>
+    		</LinearGradientBrush>
+    	</Grid.Background>
+    	<Grid Margin="8,123,0,0" Background="#7FFFFFFF" HorizontalAlignment="Left" Width="197" Height="214" VerticalAlignment="Top">
+    		<Label Content="Beamerbild bewegen" Height="29" Margin="8,8,8,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+    		<Button x:Name="b_m" Content="&gt;&gt;" HorizontalAlignment="Right" Margin="0,92,24,93" Width="26" RenderTransformOrigin="2.577,0.586" Click="b_m_Click" />
+    		<Button x:Name="b_mxmm" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="29,92,0,93" Width="26" Click="b_mxmm_Click" />
+    		<Button x:Name="b_mxp" Content="&gt;" Margin="0,92,54,93" RenderTransformOrigin="0.462,0.345" HorizontalAlignment="Right" Width="26" Click="b_mxp_Click" />
+    		<Button x:Name="b_mxm" Content="&lt;" HorizontalAlignment="Left" Margin="59,92,0,93" Width="26" Click="b_mxm_Click" />
+    		<Button x:Name="b_mypp" Content="&gt;&gt;" HorizontalAlignment="Right" Margin="0,93,24,92" Width="26" RenderTransformOrigin="2.577,0.586" Click="b_mypp_Click">
+    			<Button.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform Angle="90"/>
+    					<TranslateTransform X="-116.602" Y="110.478"/>
+    				</TransformGroup>
+    			</Button.RenderTransform>
+    		</Button>
+    		<Button x:Name="txt_mymm" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="29,93,0,92" Width="26" RenderTransformOrigin="0.5,0.5" Click="txt_mymm_Click">
+    			<Button.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform Angle="90"/>
+    					<TranslateTransform X="59.578" Y="-58.997"/>
+    				</TransformGroup>
+    			</Button.RenderTransform>
+    		</Button>
+    		<Button x:Name="b_myp" Content="&gt;" Margin="0,93,54,92" RenderTransformOrigin="0.462,0.345" HorizontalAlignment="Right" Width="26" Click="b_myp_Click">
+    			<Button.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform Angle="90"/>
+    					<TranslateTransform X="-23.791" Y="32.55"/>
+    				</TransformGroup>
+    			</Button.RenderTransform>
+    		</Button>
+    		<Button x:Name="b_mym" Content="&lt;" HorizontalAlignment="Left" Margin="59,93,0,92" Width="26" RenderTransformOrigin="0.5,0.5" Click="b_mym_Click">
+    			<Button.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform/>
+    					<SkewTransform/>
+    					<RotateTransform Angle="90"/>
+    					<TranslateTransform X="29.284" Y="-28.999"/>
+    				</TransformGroup>
+    			</Button.RenderTransform>
+    		</Button>
+    		<TextBox x:Name="txt_my" Height="24" Margin="87.342,0,63.658,8" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom"  KeyDown="txt_my_KeyDown" />
+    		<TextBox x:Name="txt_mx" HorizontalAlignment="Right" Height="23" Margin="0,0,24,66" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="42.342" RenderTransformOrigin="1.417,0.609" KeyDown="txt_mx_KeyDown" />
+    		<TextBlock HorizontalAlignment="Left" Height="20" Margin="29,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22"><Run Language="de-de" Text="x"/></TextBlock>
+    		<TextBlock HorizontalAlignment="Right" Height="20" Margin="0,37,54,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Text="y" RenderTransformOrigin="-1.045,1"/>
+    	</Grid>
+    	<Grid Margin="209,123,0,0" Background="#7FFFFFFF" HorizontalAlignment="Left" Width="206" Height="214" VerticalAlignment="Top">
+    		<Label Content="Beamerbild skalieren" Height="29" Margin="8,8,8,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+    		<Slider x:Name="s_scalex" Height="36" Margin="41,41,8,0" VerticalAlignment="Top" Maximum="8" Minimum="-1" Value="1" TickFrequency="0.1" TickPlacement="BottomRight" ValueChanged="s_scalex_ValueChanged" MouseMove="s_scalex_MouseMove" />
+    		<Slider x:Name="s_scaley" Margin="41,0,8,53" Maximum="8" Minimum="-1" Value="1" TickFrequency="0.1" TickPlacement="BottomRight" Height="36" VerticalAlignment="Bottom" ValueChanged="s_scaley_ValueChanged" MouseMove="s_scaley_MouseMove" />
+    		<TextBlock HorizontalAlignment="Left" Height="15" Margin="43.118,77,0,0" TextWrapping="Wrap" Text="x scale:" VerticalAlignment="Top" Width="41.882"/>
+    		<TextBox x:Name="txt_xscale" Height="23" Margin="89,74,39.118,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"  KeyDown="txt_xscale_KeyDown" TextChanged="txt_xscale_TextChanged" />
+    		<TextBlock HorizontalAlignment="Left" Height="15" Margin="43.118,0,0,31" TextWrapping="Wrap" Text="y scale:" VerticalAlignment="Bottom" Width="41.882"/>
+    		<TextBox x:Name="txt_yscale" Height="23" Margin="89,0,39.118,26" TextWrapping="Wrap" Text="1" VerticalAlignment="Bottom"  KeyDown="txt_yscale_KeyDown" />
+    	</Grid>
+    	<Button x:Name="b_ok" Content="OK" HorizontalAlignment="Right" Height="27" Margin="0,0,8,8" VerticalAlignment="Bottom" Width="85" Click="b_ok_Click" />
+    	<TextBlock Height="53" Margin="8,8,8,0" TextWrapping="Wrap" Text="Auf der Oberfläche werden die Mittelpunkte der Objekte markiert. Verändere die Werte, so dass sich die projezierten Punkte tatsächlich auf den Mittelpunkten befinden." VerticalAlignment="Top"/>
+    	<Grid Height="31" Margin="8,88,8,0" VerticalAlignment="Top" Background="#7FFFFFFF">
+    		<RadioButton x:Name="cb_crosshair" Content="Fadenkreuze" Margin="136,8,159,8" Checked="cb_crosshair_Checked" />
+    		<RadioButton x:Name="cb_noElements" Content="Keine" Margin="0,8,47,8" HorizontalAlignment="Right" Width="112" IsChecked="True" Checked="cb_kreis_Checked" />
+    		<TextBlock HorizontalAlignment="Left" Margin="8,7,0,8" TextWrapping="Wrap" Text="Angezeigte Elemente:" Width="128"/>
+    	</Grid>
+        <Grid Height="64" Margin="8,0,8,58" VerticalAlignment="Bottom" Background="#7FFFFFFF">
+        	<TextBox Height="23" HorizontalAlignment="Left" Margin="16,31,0,0" x:Name="txt_colormoveX" VerticalAlignment="Top" Width="75" KeyDown="txt_colormoveX_KeyDown" />
+        	<TextBox Height="23" HorizontalAlignment="Left" Margin="120,31,0,0" x:Name="txt_colormoveY" VerticalAlignment="Top" Width="75" KeyDown="txt_colormoveY_KeyDown" />
+        	<TextBlock Height="23" Margin="5,8,183,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="de-de" Text="Objektversatz Kinect-Farbbild:"/><LineBreak/><Run Language="de-de"/></TextBlock>
+        	<TextBlock HorizontalAlignment="Left" Height="24" Margin="5,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="17"><Run Language="de-de" Text="x:"/></TextBlock>
+        	<TextBlock HorizontalAlignment="Left" Height="24" Margin="103,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="17" RenderTransformOrigin="0.412,0.458" Text="y:"/>
+        </Grid>
+    </Grid>
+</Window>

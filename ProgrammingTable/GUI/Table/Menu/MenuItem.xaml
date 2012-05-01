@@ -1,0 +1,44 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ProgrammingTable.GUI.Table.Menu.MenuItem"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="171" Height="148">
+
+	<Grid x:Name="LayoutRoot">
+		<Rectangle Fill="#00000000" Stroke="White" StrokeThickness="2"/>
+		<TextBlock x:Name="txt_category" Margin="-63,63,0,62.999" TextWrapping="Wrap" Text="TextBlock" RenderTransformOrigin="0.5,0.5" Foreground="White" TextAlignment="Center" FontSize="14.667" HorizontalAlignment="Left" Width="148">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBlock x:Name="txt_short" Margin="24,25,-1,30.999" TextWrapping="Wrap" Text="ax+" RenderTransformOrigin="0.5,0.5" Foreground="White" TextAlignment="Center" FontSize="73.333" FontWeight="Bold">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBlock x:Name="txt_name" Margin="81,59,-58,58.999" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" Foreground="White" TextAlignment="Center" FontSize="18.667" Text="Name" FontWeight="Bold">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+	</Grid>
+</UserControl>

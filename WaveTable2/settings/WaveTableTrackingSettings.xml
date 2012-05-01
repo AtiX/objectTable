@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<TrackingSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MaximumHistoryCount>20</MaximumHistoryCount>
+  <LtNonMovingCertainity>0.9</LtNonMovingCertainity>
+  <LtMovingCertainity>0.8</LtMovingCertainity>
+  <ShortlyAddedCertainity>0.85</ShortlyAddedCertainity>
+  <MinimalLongTermAge>13</MinimalLongTermAge>
+  <GuessLongTermObjects>true</GuessLongTermObjects>
+  <GuessObjectMaxAge>8</GuessObjectMaxAge>
+  <ObjectMoveListMinDistance>4</ObjectMoveListMinDistance>
+  <SmoothObjects>false</SmoothObjects>
+</TrackingSettings>

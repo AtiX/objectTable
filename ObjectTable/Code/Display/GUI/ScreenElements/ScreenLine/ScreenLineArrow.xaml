@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ObjectTable.Code.Display.GUI.ScreenElements.ScreenLine.ScreenLineArrow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="40" Width="96">
+    <Grid>
+    	<Path Data="M8,8 L79.5,7.5 103.5,23.5 79.5,39.5 7.5,39.5 23.5,23.5 z" Margin="7.5" Stretch="Fill" Stroke="White" Fill="#FF2976BE">
+    		<Path.OpacityMask>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#00000000" Offset="0.278"/>
+    				<GradientStop Color="White" Offset="1"/>
+    			</RadialGradientBrush>
+    		</Path.OpacityMask>
+    	</Path>
+            
+    </Grid>
+</UserControl>

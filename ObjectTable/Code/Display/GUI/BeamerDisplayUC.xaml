@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ObjectTable.Code.Display.GUI.BeamerDisplayUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="550" Height="331" Name="BeamerDisplayUC1">
+    <Grid x:Name="maingrid" Margin="0" MouseMove="maingrid_MouseMove" MouseLeave="maingrid_MouseLeave" MouseDown="maingrid_MouseDown" MouseUp="maingrid_MouseUp">
+    	<Rectangle x:Name="rect_back" Fill="Black" Stroke="Black"/>
+    	<Grid x:Name="grid_bottom">
+    		<Canvas x:Name="canvas_bottom" >
+                <Canvas.BindingGroup>
+    				<BindingGroup/>
+    			</Canvas.BindingGroup>
+    		</Canvas>
+    	</Grid>
+    	<Grid x:Name="grid_mid">
+    		<Canvas x:Name="canvas_mid"/>
+    	</Grid>
+    	<Grid x:Name="grid_top">
+            <Canvas x:Name="canvas_top"/>
+        </Grid>
+    	<TextBlock x:Name="txt_coords" HorizontalAlignment="Left" Margin="55,204,0,0" TextWrapping="Wrap" Width="89" Foreground="White" Height="21" VerticalAlignment="Top" Visibility="Hidden"><Run Background="#7FFFFFFF" Text="TextBlock"/></TextBlock>
+    </Grid>
+</UserControl>

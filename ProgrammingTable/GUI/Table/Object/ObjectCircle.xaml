@@ -1,0 +1,69 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ProgrammingTable.ObjectCircle"
+	x:Name="Circle" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" RenderTransformOrigin="0.5,0.5">
+	<UserControl.Resources>
+		<RadialGradientBrush x:Key="brush_color" d:IsDataSource="True"/>
+		<RadialGradientBrush x:Key="gradient_blue">
+			<GradientStop Color="#FF3352B2" Offset="0.974"/>
+			<GradientStop Color="#FF1A9BFF" Offset="1"/>
+			<GradientStop Color="#003733B2" Offset="0.547"/>
+			<GradientStop Color="#A83441B2" Offset="0.961"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_cyan">
+			<GradientStop Color="#FF085E60" Offset="0.974"/>
+			<GradientStop Color="#FF1AFFC5" Offset="1"/>
+			<GradientStop Color="#003398B2" Offset="0.547"/>
+			<GradientStop Color="#A80E8F8D" Offset="0.888"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_green">
+			<GradientStop Color="#FF287406" Offset="0.966"/>
+			<GradientStop Color="#FF41FF00" Offset="1"/>
+			<GradientStop Color="#00184314" Offset="0.547"/>
+			<GradientStop Color="#A80D8109" Offset="0.888"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_yellow">
+			<GradientStop Color="#FF92990F" Offset="0.974"/>
+			<GradientStop Color="#FFF0FD00" Offset="1"/>
+			<GradientStop Color="#00595E00" Offset="0.547"/>
+			<GradientStop Color="#A8AFB100" Offset="0.888"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_red">
+			<GradientStop Color="#FF990F0F" Offset="0.974"/>
+			<GradientStop Color="#FFFD0000" Offset="1"/>
+			<GradientStop Color="#005E0000" Offset="0.547"/>
+			<GradientStop Color="#A8B10000" Offset="0.888"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_pink">
+			<GradientStop Color="#FF8B0F99" Offset="0.97"/>
+			<GradientStop Color="#FFFD00F3" Offset="1"/>
+			<GradientStop Color="#005D005E" Offset="0.56"/>
+			<GradientStop Color="#A8B000B1" Offset="0.888"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="gradient_white">
+			<GradientStop Color="White" Offset="0.97"/>
+			<GradientStop Color="White" Offset="1"/>
+			<GradientStop Offset="0.56"/>
+			<GradientStop Color="#A8FFFFFF" Offset="0.888"/>
+		</RadialGradientBrush>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource brush_color}}">
+		<Ellipse x:Name="el_color" Margin="-2,-2,0,0" Stroke="Black" RenderTransformOrigin="0.5,0.5" Fill="{DynamicResource gradient_blue}" DataContext="{Binding}" />
+		<TextBlock x:Name="txt_1" Height="37" Margin="50,0" TextWrapping="Wrap" Text="ABC" VerticalAlignment="Bottom" Foreground="White" FontSize="24" TextAlignment="Center"/>
+		<TextBlock x:Name="txt_2" Height="37" Margin="49,-2,51,0" TextWrapping="Wrap" Text="ABC" VerticalAlignment="Top" Foreground="White" FontSize="24" TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-180"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+	</Grid>
+</UserControl>

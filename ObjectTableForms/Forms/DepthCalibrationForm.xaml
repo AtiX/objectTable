@@ -1,0 +1,73 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ObjectTableForms.DepthCalibrationForm"
+	x:Name="Window"
+	Title="DepthCalibrationForm"
+	Width="656" Height="480">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF16BAFF" Offset="0"/>
+			<GradientStop Color="#FF0028CC" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="407.904"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid Margin="0,61" HorizontalAlignment="Left">
+			<Grid Margin="40" Width="320" Height="240" Background="#67FFFFFF"/>
+			<Slider x:Name="s_cutoff_left" Height="28" Margin="40,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Maximum="160"/>
+			<Slider x:Name="s_cutoff_right" Height="28" Margin="0,0,40,12" VerticalAlignment="Bottom" Maximum="160" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="160">
+				<Slider.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-180"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Slider.RenderTransform>
+			</Slider>
+			<Slider x:Name="s_cutoff_down" Margin="0,0,-40,84" HorizontalAlignment="Right" Width="120" Maximum="120" RenderTransformOrigin="0.5,0.5" Height="28" VerticalAlignment="Bottom">
+				<Slider.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="-90"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Slider.RenderTransform>
+			</Slider>
+			<Slider x:Name="s_cutoff_top" Margin="-40,84,0,0" HorizontalAlignment="Left" Width="120" Maximum="120" RenderTransformOrigin="0.5,0.5" Height="28" VerticalAlignment="Top">
+				<Slider.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="90"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Slider.RenderTransform>
+			</Slider>
+			<Canvas x:Name="imageCanvas" Margin="40" Height="240">
+                <Image Canvas.Left="0" Canvas.Top="0" Height="240" Name="image" Stretch="Fill" Width="320" MouseDown="image_MouseDown" />
+            </Canvas>
+        </Grid>
+		<Grid Grid.Column="1" Margin="0.096,0,0,2" Background="#7FFFFFFF">
+			<Button x:Name="b_aktualisieren" Content="Bild aktualisieren" HorizontalAlignment="Left" Height="24" Margin="7.904,8,0,0" VerticalAlignment="Top" Width="104.096" Click="b_aktualisieren_Click" />
+			<Button x:Name="b_datei" Content="aus Datei" HorizontalAlignment="Right" Height="24" Margin="0,8,8,0" VerticalAlignment="Top" Width="104.096" IsEnabled="False"/>
+			<TextBlock Height="68" Margin="8,72,8,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="de-de" Text="1. Klicke auf die Oberfäche im Bild, um deren Anstand vom Sensor festzulegen. Mehrere Klicks erhöhen die Genauigkeit."/></TextBlock>
+        </Grid>
+        <Grid Height="32" Margin="8,146,8,0" VerticalAlignment="Top" Background="#7FFFFFFF" Grid.Column="1">
+            <Button x:Name="b_deleteHeightData" Content="löschen" HorizontalAlignment="Left" Margin="144,3.98,0,4.02" Width="64" RenderTransformOrigin="-0.625,0.833" Click="b_deleteHeightData_Click" />
+            <TextBlock HorizontalAlignment="Left" Margin="8,8,0,0" TextWrapping="Wrap" Width="88" Height="16" VerticalAlignment="Top"><Run Language="de-de" Text="Abstand [mm]:" /><LineBreak /><Run Language="de-de" /></TextBlock>
+            <TextBlock x:Name="l_höhe" Margin="96,8,80,0" TextWrapping="Wrap" Text="0" FontWeight="Bold" />
+        </Grid>
+        <TextBlock Margin="8,0,8,80" TextWrapping="Wrap" Height="88" VerticalAlignment="Bottom" Grid.Column="1"><Run Language="de-de" Text="3. Die Oberfläche muss frei von Objekten sein. Falls nicht: Oberfläche freiräumen und &quot;Bild aktualisieren&quot;. Nun kann der Kalibrationsvorgang fertig gestellt werden" /></TextBlock>
+        <Grid Height="40" Margin="8,0,8,32" VerticalAlignment="Bottom" Background="#7FFFFFFF" Grid.Column="1">
+            <Button x:Name="b_calibrate" Content="Kalibration ausführen" Margin="48,8,31.904,8" Click="b_calibrate_Click" />
+        </Grid>
+        <TextBlock Margin="8,194,8,160" TextWrapping="Wrap" Grid.Column="1"><Run Text="2. M" /><Run Language="de-de" Text="i" /><Run Text="t den Slidern können Cut-off bereiche an den Rändern definiert werden. Diese Bereiche werden später ignoriert" /></TextBlock>
+    </Grid>
+</Window>

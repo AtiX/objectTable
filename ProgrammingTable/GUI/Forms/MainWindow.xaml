@@ -1,0 +1,50 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ProgrammingTable.MainWindow"
+        Title="ProgrammingTable" Height="391" Width="399" Closing="Window_Closing">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF00B3FF" Offset="0"/>
+			<GradientStop Color="#FF001BFF" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+    <Grid>
+    	<Menu Height="23" VerticalAlignment="Top">
+    		<MenuItem Header="Datei">
+                <MenuItem x:Name="mi_end" Header="Beenden" Click="mi_end_Click"/>
+    		</MenuItem>
+    		<MenuItem Header="Kinect">
+    			<MenuItem x:Name="mi_kinect_init" Header="Initialisieren" Click="mi_kinect_init_Click"/>
+    			<MenuItem x:Name="mi_kinect_calib" Header="Kalibrieren" Click="mi_kinect_calib_Click"/>
+    			<Separator/>
+    			<CheckBox x:Name="micb_objectrec" Content="Objekterkennung" IsChecked="True" Checked="micb_objectrec_Checked" Click="micb_objectrec_Click"/>
+    			<CheckBox x:Name="micb_tracking" Content="Tracking" IsChecked="True" Checked="micb_tracking_Checked" Click="micb_tracking_Click"/>
+    			<CheckBox x:Name="micb_rotation" Content="Rotationserkennung" IsChecked="True" Checked="micb_rotation_Checked" Click="micb_rotation_Click"/>
+    		</MenuItem>
+    		<MenuItem Header="Simulation">
+    			<CheckBox x:Name="micb_simPause" Content="Pause" Checked="micb_simPause_Checked" Click="micb_simPause_Click" IsChecked="True"/>
+    			<MenuItem x:Name="mi_restart_sim" Header="Neu starten" Click="mi_restart_sim_Click"/>
+    		</MenuItem>
+    		<MenuItem Header="Erweitert">
+    			<MenuItem x:Name="mi_showdepthmaps" Header="DepthMaps anzeigen" Click="mi_showdepthmaps_Click"/>
+                <MenuItem x:Name="mi_performance" Header="Performance-Info anzeigen" Click="mi_performance_Click"/>
+    			<MenuItem x:Name="mi_beamercalibration" Header="Beamerkalibration" Click="mi_beamercalibration_Click"/>
+    		</MenuItem>
+    	</Menu>
+    	<Grid Height="56" Margin="8,40,8,0" VerticalAlignment="Top" Background="#7FFFFFFF">
+    		<TextBlock HorizontalAlignment="Left" Height="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Margin="8,8,0,0" FontWeight="Bold"><Run Language="de-de" Text="Status:"/></TextBlock>
+    		<TextBlock HorizontalAlignment="Left" Margin="8,28,0,0" TextWrapping="Wrap" Width="40" Height="16" VerticalAlignment="Top"><Run Language="de-de" Text="Kinect:"/><LineBreak/><Run Language="de-de"/></TextBlock>
+    		<TextBlock Margin="0,28,65,0" TextWrapping="Wrap" Height="16" VerticalAlignment="Top" Text="Simulation:" HorizontalAlignment="Right" Width="64" d:LayoutOverrides="HorizontalAlignment"/>
+    		<TextBlock x:Name="l_kinectstatus" HorizontalAlignment="Left" Margin="52,28,0,0" TextWrapping="Wrap" Width="92" Height="16" VerticalAlignment="Top" Text="nicht initialisiert" Foreground="Red" FontWeight="Bold"/>
+    		<TextBlock x:Name="l_simulationstatus" HorizontalAlignment="Right" Margin="0,28,8,0" TextWrapping="Wrap" Width="53" Height="16" VerticalAlignment="Top" Text="pausiert" Foreground="#FFF1FF00" FontWeight="Bold"/>
+        </Grid>
+    	<TextBlock x:Name="l_version" Height="16" Margin="0,0,8,8" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right"><Run Language="de-de" Text="Version:"/><LineBreak/><Run Language="de-de"/></TextBlock>
+        <Grid Background="#7FFFFFFF" Margin="8,102,8,0" Height="82" VerticalAlignment="Top">
+            <TextBlock FontWeight="Bold" Height="14" HorizontalAlignment="Left" Margin="8,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Text="Simulationsgeschwindigkeit:"></TextBlock>
+            <TextBlock Height="16" HorizontalAlignment="Left" Margin="172,8,0,0" Text="(Verzögerung)" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" />
+            <Slider Height="36" HorizontalAlignment="Left" Margin="76,28,0,0" Name="sl_Simuspeed" VerticalAlignment="Top" Width="209" Value="200" Maximum="3000" Interval="100" LargeChange="100" TickFrequency="100" TickPlacement="BottomRight" ValueChanged="sl_Simuspeed_ValueChanged" IsSnapToTickEnabled="True" Minimum="100" />
+            <TextBlock Height="16" HorizontalAlignment="Left" Margin="76,60,0,0" Text="200 ms" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" TextAlignment="Center" Name="l_simdelay" />
+        </Grid>
+    </Grid>
+</Window>

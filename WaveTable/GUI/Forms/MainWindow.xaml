@@ -1,0 +1,213 @@
+﻿<Window x:Class="WaveTable.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WaveTable" Height="550" Width="727" Closing="Window_Closing">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF00B3FF" Offset="0"/>
+			<GradientStop Color="#FF001BFF" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+    <Grid MouseMove="Grid_MouseMove">
+    	<Menu Height="23" VerticalAlignment="Top">
+    		<MenuItem Cursor="No" Header="Datei">
+    			<MenuItem x:Name="mi_settings" Header="Einstellungen"/>
+    			<MenuItem x:Name="mi_end" Header="Beenden" />
+    		</MenuItem>
+    		<MenuItem Header="Kinect">
+    			<MenuItem x:Name="mi_kinect_init" Header="Initialisieren" Click="mi_kinect_init_Click"/>
+    			<MenuItem x:Name="mi_kinect_calib" Header="Kalibrieren" Click="mi_kinect_calib_Click"/>
+    			<Separator/>
+    			<CheckBox x:Name="micb_objectrec" Content="Objekterkennung" IsChecked="True" Checked="micb_objectrec_Checked" Click="micb_objectrec_Click"/>
+    			<CheckBox x:Name="micb_tracking" Content="Tracking" IsChecked="True" Checked="micb_tracking_Checked" Click="micb_tracking_Click"/>
+    			<CheckBox x:Name="micb_rotation" Content="Rotationserkennung" IsChecked="True" Checked="micb_rotation_Checked" Click="micb_rotation_Click"/>
+    		</MenuItem>
+    		<MenuItem Header="Simulation">
+    			<CheckBox x:Name="micb_simPause" Content="Pause" Checked="micb_simPause_Checked" Click="micb_simPause_Click" IsChecked="True"/>
+    			<MenuItem x:Name="mi_restart_sim" Header="Neu starten" Click="mi_restart_sim_Click"/>
+    		</MenuItem>
+    		<MenuItem Header="Erweitert">
+    			<MenuItem x:Name="mi_showdepthmaps" Header="DepthMaps anzeigen" Click="mi_showdepthmaps_Click"/>
+                <MenuItem x:Name="mi_performance" Header="Performance-Info anzeigen" Click="mi_performance_Click"/>
+    			<MenuItem x:Name="mi_beamercalibration" Header="Beamerkalibration" Click="mi_beamercalibration_Click"/>
+    		</MenuItem>
+    	</Menu>
+    	<Grid Height="56" Margin="8,40,405,0" VerticalAlignment="Top" Background="#7FFFFFFF">
+    		<TextBlock HorizontalAlignment="Left" Height="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Margin="8,8,0,0" FontWeight="Bold"><Run Language="de-de" Text="Status:"/></TextBlock>
+    		<TextBlock HorizontalAlignment="Left" Margin="8,28,0,0" TextWrapping="Wrap" Width="40" Height="16" VerticalAlignment="Top"><Run Language="de-de" Text="Kinect:"/><LineBreak/><Run Language="de-de"/></TextBlock>
+    		<TextBlock Margin="0,28,65,0" TextWrapping="Wrap" Height="16" VerticalAlignment="Top" Text="Simulation:" HorizontalAlignment="Right" Width="64"/>
+    		<TextBlock x:Name="l_kinectstatus" HorizontalAlignment="Left" Margin="52,28,0,0" TextWrapping="Wrap" Width="92" Height="16" VerticalAlignment="Top" Text="nicht initialisiert" Foreground="Red" FontWeight="Bold"/>
+    		<TextBlock x:Name="l_simulationstatus" HorizontalAlignment="Right" Margin="0,28,8,0" TextWrapping="Wrap" Width="53" Height="16" VerticalAlignment="Top" Text="pausiert" Foreground="#FFF1FF00" FontWeight="Bold"/>
+        </Grid>
+    	<TextBlock x:Name="l_version" Height="16" Margin="0,0,8,8" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right"><Run Language="de-de" Text="Version:"/><LineBreak/><Run Language="de-de"/></TextBlock>
+        <Grid Background="#7FFFFFFF" Margin="8,102,484,0" Height="267" VerticalAlignment="Top">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="8,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Text="Simulationsparameter:"></TextBlock>
+            <Label Content="D Kopplung:" Margin="6,32,131,0" Name="label1" Height="27" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="87,34,0,210" Name="txt_dkopplung" Width="97" />
+            <Label Content="Distanz:" Height="27" Margin="6,61,131,0" Name="label2" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,63,0,0" Name="txt_distanz" VerticalAlignment="Top" Width="97" />
+            <Label Content="Std. Masse:" Height="27" Margin="6,90,131,0" Name="label3" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,92,0,0" Name="txt_stdmasse" VerticalAlignment="Top" Width="97" />
+            <Label Content="D Teilchen:" Height="27" Margin="6,119,131,0" Name="label4" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,121,0,0" Name="txt_dteilchen" VerticalAlignment="Top" Width="97" />
+            <Label Content="Delta T:" Height="27" Margin="6,148,131,0" Name="label5" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,150,0,0" Name="txt_deltaT" VerticalAlignment="Top" Width="97" />
+            <Label Content="gew. FPS:" Height="27" Margin="6,177,131,0" Name="label6" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,179,0,0" Name="txt_fps" VerticalAlignment="Top" Width="97" />
+            <Label Content="Energie %:" Height="27" Margin="6,206,131,0" Name="label7" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="87,208,0,0" Name="txt_energie" VerticalAlignment="Top" Width="97" />
+            <Button Content="Set" Height="23" HorizontalAlignment="Left" Margin="132,238,0,0" Name="txt_paramset" VerticalAlignment="Top" Width="75" Click="txt_paramset_Click" />
+        </Grid>
+        <Grid Height="119" HorizontalAlignment="Left" Margin="231,102,0,0" Name="grid1" VerticalAlignment="Top" Width="243" Background="#73FFFFFF">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,8,0,0" Text="Maus:" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Label Content="Aktion:" Height="28" HorizontalAlignment="Left" Margin="6,30,0,0" Name="label8" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,32,0,0" Name="cb_mouseAction" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_mouseAction_SelectionChanged">
+                <ComboBoxItem Content="Poke (Elongation)" />
+                <ComboBoxItem Content="Wand setzen" />
+                <ComboBoxItem Content="Wand löschen" />
+                <ComboBoxItem Content="Masse setzen" />
+                <ComboBoxItem Content="Masse löschen" />
+                <ComboBoxItem Content="WaveSource setzen" />
+            </ComboBox>
+            <Label Content="Wert:" Height="28" HorizontalAlignment="Left" Margin="4,80,0,0" Name="label9" VerticalAlignment="Top" />
+            <Slider Height="23" HorizontalAlignment="Left" Margin="60,85,0,0" Name="sl_mouseValue" VerticalAlignment="Top" Width="131" Value="10" Minimum="0.5" SmallChange="0.25" IsSnapToTickEnabled="True" LargeChange="0.25" TickFrequency="0.25" ValueChanged="sl_mouseValue_ValueChanged" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="197,85,0,0" Name="l_mouseValue" VerticalAlignment="Top" Content="{Binding Path=Value, ElementName=sl_mouseValue}" />
+            <Label Content="Größe:" Height="28" HorizontalAlignment="Left" Margin="6,56,0,0" Name="label20" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,58,0,0" Name="cb_mouseSize" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_mouseSize_SelectionChanged">
+                <ComboBoxItem Content="1" />
+                <ComboBoxItem Content="2" />
+                <ComboBoxItem Content="3" />
+                <ComboBoxItem Content="4" />
+                <ComboBoxItem Content="5" />
+                <ComboBoxItem Content="10" />
+                <ComboBoxItem Content="15" />
+                <ComboBoxItem Content="20" />
+                <ComboBoxItem Content="25" />
+                <ComboBoxItem Content="30" />
+                <ComboBoxItem Content="35" />
+                <ComboBoxItem Content="40" />
+                <ComboBoxItem Content="45" />
+                <ComboBoxItem Content="50" />
+                <ComboBoxItem Content="60" />
+                <ComboBoxItem Content="70" />
+                <ComboBoxItem Content="80" />
+                <ComboBoxItem Content="90" />
+                <ComboBoxItem Content="100" />
+            </ComboBox>
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="126" HorizontalAlignment="Left" Margin="231,225,0,0" Name="grid2" VerticalAlignment="Top" Width="243">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,3,0,0" Text="LT-Objekt (auf Oberfläche)" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Label Content="Aktion:" Height="28" HorizontalAlignment="Left" Margin="6,22,0,0" Name="label10" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,24,0,0" Name="cb_ltoType" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_ltoType_SelectionChanged">
+                <ComboBoxItem Content="WaveSource" />
+                <ComboBoxItem Content="Masse" />
+                <ComboBoxItem Content="Wand" />
+                <ComboBoxItem Content="Plotter" />
+            </ComboBox>
+            <Label Content="Wert:" Height="28" HorizontalAlignment="Left" Margin="6,94,0,0" Name="label11" VerticalAlignment="Top" />
+            <Slider Height="23" HorizontalAlignment="Left" IsSnapToTickEnabled="True" LargeChange="0.25" Margin="62,99,0,0" Minimum="0.5" Name="sl_ltoValue" SmallChange="0.25" TickFrequency="0.25" Value="10" VerticalAlignment="Top" Width="131" ValueChanged="sl_ltoValue_ValueChanged" />
+            <Label Content="{Binding Path=Value, ElementName=sl_ltoValue}" Height="28" HorizontalAlignment="Right" Margin="0,99,21,0" Name="label12" VerticalAlignment="Top" />
+            <Label Content="Form:" Height="28" HorizontalAlignment="Left" Margin="6,47,0,0" Name="label13" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,49,0,0" Name="cb_ltoShape" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_ltoShape_SelectionChanged">
+                <ComboBoxItem Content="Rechteck" />
+                <ComboBoxItem Content="Kreis" />
+            </ComboBox>
+            <Label Content="Größe:" Height="28" HorizontalAlignment="Left" Margin="6,72,0,0" Name="label18" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,74,0,0" Name="cb_ltoSize" VerticalAlignment="Top" Width="175" SelectedIndex="4" SelectionChanged="cb_ltoSize_SelectionChanged">
+                <ComboBoxItem Content="1" />
+                <ComboBoxItem Content="2" />
+                <ComboBoxItem Content="3" />
+                <ComboBoxItem Content="4" />
+                <ComboBoxItem Content="5" />
+                <ComboBoxItem Content="10" />
+                <ComboBoxItem Content="15" />
+                <ComboBoxItem Content="20" />
+                <ComboBoxItem Content="25" />
+                <ComboBoxItem Content="30" />
+                <ComboBoxItem Content="35" />
+                <ComboBoxItem Content="40" />
+                <ComboBoxItem Content="45" />
+                <ComboBoxItem Content="50" />
+                <ComboBoxItem Content="60" />
+                <ComboBoxItem Content="70" />
+                <ComboBoxItem Content="80" />
+                <ComboBoxItem Content="90" />
+                <ComboBoxItem Content="100" />
+            </ComboBox>
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="135" HorizontalAlignment="Left" Margin="231,355,0,0" Name="grid3" VerticalAlignment="Top" Width="243">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Text="Objekt über Oberfläche" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Label Content="Aktion:" Height="28" HorizontalAlignment="Left" Margin="6,32,0,0" Name="label14" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,34,0,0" Name="cb_tooAktion" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_tooAktion_SelectionChanged">
+                <ComboBoxItem Content="Elongation (~ zur Höhe)" />
+                <ComboBoxItem Content="Elongation (fester Wert)" />
+            </ComboBox>
+            <Label Content="Wert:" Height="28" HorizontalAlignment="Left" Margin="6,104,0,0" Name="label15" VerticalAlignment="Top" />
+            <Slider Height="23" HorizontalAlignment="Left" IsSnapToTickEnabled="True" LargeChange="0.25" Margin="62,109,0,0" Minimum="0.5" Name="sl_tooValue" SmallChange="0.25" TickFrequency="0.25" Value="10" VerticalAlignment="Top" Width="131" ValueChanged="sl_tooValue_ValueChanged" />
+            <Label Content="{Binding Path=Value, ElementName=sl_tooValue}" Height="28" HorizontalAlignment="Right" Margin="0,105,21,0" Name="label16" VerticalAlignment="Top" />
+            <Label Content="Größe:" Height="28" HorizontalAlignment="Left" Margin="6,82,0,0" Name="label17" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,84,6,0" Name="cb_tooSize" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_tooSize_SelectionChanged">
+                <ComboBoxItem Content="5" />
+                <ComboBoxItem Content="10" />
+                <ComboBoxItem Content="15" />
+                <ComboBoxItem Content="20" />
+                <ComboBoxItem Content="25" />
+                <ComboBoxItem Content="30" />
+                <ComboBoxItem Content="40" />
+                <ComboBoxItem />
+            </ComboBox>
+            <Label Content="Form:" Height="28" HorizontalAlignment="Left" Margin="6,57,0,0" Name="label19" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="62,59,0,0" Name="cb_tooShape" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_tooShape_SelectionChanged">
+                <ComboBoxItem Content="Rechteck" />
+                <ComboBoxItem Content="Kreis" />
+            </ComboBox>
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="117" HorizontalAlignment="Left" Margin="8,373,0,0" Name="grid4" VerticalAlignment="Top" Width="219">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Text="Löschen/Reset (Maus):" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Button Content="Elongation" Height="23" HorizontalAlignment="Left" Margin="6,23,0,0" Name="b_delElongation" VerticalAlignment="Top" Width="75" Click="b_delElongation_Click" />
+            <Button Content="Wände" Height="23" HorizontalAlignment="Left" Margin="6,52,0,0" Name="b_delWalls" VerticalAlignment="Top" Width="75" Click="b_delWalls_Click" />
+            <Button Content="WaveSources" Height="23" HorizontalAlignment="Left" Margin="87,23,0,0" Name="b_delWaveSources" VerticalAlignment="Top" Width="83" Click="b_delWaveSources_Click" />
+            <Button Content="Massen" Height="23" HorizontalAlignment="Left" Margin="87,52,0,0" Name="b_delMass" VerticalAlignment="Top" Width="83" Click="b_delMass_Click" />
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="67" HorizontalAlignment="Left" Margin="477,102,0,0" Name="grid5" VerticalAlignment="Top" Width="226">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,8,0,0" Text="Speichern:" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Button Content="Speichern" Height="23" HorizontalAlignment="Left" Margin="6,30,0,0" Name="b_save" VerticalAlignment="Top" Width="131" Click="b_save_Click" />
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="114" HorizontalAlignment="Left" Margin="478,173,0,0" Name="grid6" VerticalAlignment="Top" Width="226">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,8,0,0" Text="Laden:" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Button Content="Laden" Height="23" HorizontalAlignment="Left" Margin="6,85,0,0" Name="b_load" VerticalAlignment="Top" Width="131" Click="b_load_Click" />
+            <CheckBox Content="Wände" Height="16" HorizontalAlignment="Left" Margin="6,30,0,0" Name="cb_loadWalls" VerticalAlignment="Top" />
+            <CheckBox Content="Massen" Height="16" HorizontalAlignment="Left" Margin="6,46,0,0" Name="cb_LoadMass" VerticalAlignment="Top" />
+            <CheckBox Content="WaveSources" Height="16" HorizontalAlignment="Left" Margin="80,30,0,0" Name="cb_loadWaveSources" VerticalAlignment="Top" />
+            <CheckBox Content="Elongation" Height="16" HorizontalAlignment="Left" Margin="80,46,0,0" Name="cb_loadElongation" VerticalAlignment="Top" />
+            <CheckBox Content="Simulationsparameter" Height="16" HorizontalAlignment="Left" Margin="6,62,0,0" Name="cb_loadSimParams" VerticalAlignment="Top" Width="162" />
+        </Grid>
+        <Grid Background="#7FFFFFFF" Height="56" Margin="310,40,12,0" VerticalAlignment="Top">
+            <TextBlock FontWeight="Bold" Height="16" HorizontalAlignment="Left" Margin="8,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Text="Simulationsabmessungen:"></TextBlock>
+            <TextBlock Height="16" HorizontalAlignment="Left" Margin="8,28,0,0" Text="Bild:" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="37,27,0,0" Name="cb_ImageSize" VerticalAlignment="Top" Width="120" SelectedIndex="3" SelectionChanged="cb_ImageSize_SelectionChanged">
+                <ComboBoxItem Content="640 x 480" />
+                <ComboBoxItem Content="800 x 600" />
+                <ComboBoxItem Content="1024 x 768" />
+                <ComboBoxItem Content="1280 x 800" />
+                <ComboBoxItem Content="1920 x 1080" />
+            </ComboBox>
+            <TextBlock Height="16" HorizontalAlignment="Left" Margin="163,28,0,0" Text="Divisor:" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="206,27,0,0" Name="cb_elementDivisor" VerticalAlignment="Top" Width="171" SelectedIndex="3" SelectionChanged="cb_elementDivisor_SelectionChanged">
+                <ComboBoxItem Content="1 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="2 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="3 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="4 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="5 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="6 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="7 Pixel = 1 Teilchen" />
+                <ComboBoxItem Content="8 Pixel = 1 Teilchen" />
+            </ComboBox>
+        </Grid>
+        <Grid Background="#73FFFFFF" Height="31" HorizontalAlignment="Left" Margin="478,291,0,0" Name="grid7" VerticalAlignment="Top" Width="226">
+            <TextBlock FontWeight="Bold" Height="20" HorizontalAlignment="Left" Margin="6,8,0,0" Text="FPS:" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" />
+            <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="27,3,0,0" Name="l_fps" VerticalAlignment="Top" />
+        </Grid>
+    </Grid>
+</Window>
+

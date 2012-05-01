@@ -1,0 +1,58 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:ProgrammingTable.GUI.Table.Menu"
+	mc:Ignorable="d"
+	x:Class="ProgrammingTable.GUI.Table.Menu.Menu"
+	x:Name="UserControl" d:DesignHeight="480" Height="720" Width="225">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid x:Name="menugrid" Margin="37,-1,7,0">
+			<Rectangle Margin="-1,-1,-6,1" Stroke="White" StrokeThickness="2"/>
+			<Rectangle x:Name="r_up" Height="44" Margin="8,8,0,0" Stroke="White" StrokeThickness="2" VerticalAlignment="Top" Fill="Black" HorizontalAlignment="Left" Width="171"/>
+			<TextBlock Height="66.983" Margin="74.997,-2.987,62.003,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="48" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" LineHeight="21.333"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="90"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform><Run Language="de-de" Text="&lt;"/></TextBlock>
+			<Canvas x:Name="c1" Margin="8,57,0,0" Height="148" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171">
+				<Canvas.Background>
+					<ImageBrush ImageSource="itemBg.jpg"/>
+				</Canvas.Background>
+				<local:MenuItem x:Name="mi1" d:LayoutOverrides="Width, Height" Canvas.Left="0" Canvas.Top="0"/>
+			</Canvas>
+			<Canvas x:Name="c2" Height="148" Margin="8,209,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171">
+				<Canvas.Background>
+					<ImageBrush ImageSource="itemBg.jpg"/>
+				</Canvas.Background>
+				<local:MenuItem x:Name="mi2" d:LayoutOverrides="Width, Height" Canvas.Left="0" Canvas.Top="0"/>
+			</Canvas>
+			<Canvas x:Name="c3" Margin="8,361,0,0" Height="148" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171">
+				<Canvas.Background>
+					<ImageBrush ImageSource="itemBg.jpg"/>
+				</Canvas.Background>
+				<local:MenuItem x:Name="mi3" d:LayoutOverrides="Width, Height" Canvas.Left="0" Canvas.Top="0"/>
+			</Canvas>
+			<Canvas x:Name="c4" Margin="8,513,0,0" Height="148" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171">
+				<Canvas.Background>
+					<ImageBrush ImageSource="itemBg.jpg"/>
+				</Canvas.Background>
+				<local:MenuItem x:Name="mi4" d:LayoutOverrides="Width, Height" Canvas.Left="0" Canvas.Top="0"/>
+			</Canvas>
+			<Rectangle x:Name="r_down" Margin="9,668,0,0" Stroke="White" StrokeThickness="2" Fill="Black" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171"/>
+			<TextBlock Height="66.983" Margin="75.997,0,61.003,-2.996" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="White" FontSize="48" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" LineHeight="21.333" Text="&gt;"><TextBlock.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="90"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</TextBlock.RenderTransform></TextBlock>
+		</Grid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<RotationRecognitionSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <blackThresholdPercentage>0.3</blackThresholdPercentage>
+  <whiteThresholdPercentage>0.3</whiteThresholdPercentage>
+  <whiteBackground>false</whiteBackground>
+  <MaxObjectsPerThread>15</MaxObjectsPerThread>
+</RotationRecognitionSettings>

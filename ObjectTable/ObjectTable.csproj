@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{004B9205-3956-45CA-8FBC-5FCFD4154B3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ObjectTable</RootNamespace>
+    <AssemblyName>ObjectTable</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Controls" />
+    <Reference Include="Microsoft.Research.Kinect, Version=1.0.0.45, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.0 Beta2\Assemblies\Microsoft.Research.Kinect.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFToolkit.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="XamlBuildTask" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\Calibration\TableHeightCalibrator.cs" />
+    <Compile Include="Code\Debug\MapVisualizer.cs" />
+    <Compile Include="Code\Display\BitmapConversion.cs" />
+    <Compile Include="Code\Display\DisplayManager.cs" />
+    <Compile Include="Code\Display\GUI\BeamerDisplayUC.xaml.cs">
+      <DependentUpon>BeamerDisplayUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenCircle.xaml.cs">
+      <DependentUpon>ScreenCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenCrosshair.xaml.cs">
+      <DependentUpon>ScreenCrosshair.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLine.xaml.cs">
+      <DependentUpon>ScreenLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLineArrow.xaml.cs">
+      <DependentUpon>ScreenLineArrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLineCircle.xaml.cs">
+      <DependentUpon>ScreenLineCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenMathHelper.cs" />
+    <Compile Include="Code\Kinect\DepthFrameVisualizer.cs" />
+    <Compile Include="Code\Kinect\KinectController.cs" />
+    <Compile Include="Code\Kinect\KinectSettings.cs" />
+    <Compile Include="Code\Kinect\Structures\DepthImage.cs" />
+    <Compile Include="Code\PositionMapping\PositionMapper.cs" />
+    <Compile Include="Code\PositionMapping\ScreenMappingSettings.cs" />
+    <Compile Include="Code\Recognition\DataStructures\DebugDataPacket.cs" />
+    <Compile Include="Code\Recognition\DataStructures\DepthCorrectionMap.cs" />
+    <Compile Include="Code\Recognition\DataStructures\HandObject.cs" />
+    <Compile Include="Code\Recognition\DataStructures\ObjectPoint.cs" />
+    <Compile Include="Code\Recognition\DataStructures\TableObject.cs" />
+    <Compile Include="Code\Recognition\DataStructures\TPoint.cs" />
+    <Compile Include="Code\Recognition\DataStructures\TRectangle.cs" />
+    <Compile Include="Code\Recognition\DepthMapPreprocessor.cs" />
+    <Compile Include="Code\Recognition\HandRecognizer.cs" />
+    <Compile Include="Code\Recognition\ObjectRecognizer.cs" />
+    <Compile Include="Code\Recognition\ObjectSeperator.cs" />
+    <Compile Include="Code\Recognition\ObjectVideoBitmapAssigner.cs" />
+    <Compile Include="Code\Recognition\PreprocessingSettings.cs" />
+    <Compile Include="Code\Recognition\RecognitionSettings.cs" />
+    <Compile Include="Code\Recognition\RecognitionThread.cs" />
+    <Compile Include="Code\RecognitionManager.cs" />
+    <Compile Include="Code\Rotation\BlackWhiteRotationDetector.cs" />
+    <Compile Include="Code\Rotation\BlueRedRotationDetector.cs" />
+    <Compile Include="Code\Rotation\ImprovedBWRotDetector.cs" />
+    <Compile Include="Code\Rotation\RotationDetector.cs" />
+    <Compile Include="Code\Rotation\RotationRecognitionSettings.cs" />
+    <Compile Include="Code\SettingManagement\SettingsManager.cs" />
+    <Compile Include="Code\TableManager.cs" />
+    <Compile Include="Code\Tracking\DataStructures\HistoryContainer.cs" />
+    <Compile Include="Code\Tracking\DataStructures\TrackObject.cs" />
+    <Compile Include="Code\Tracking\HistoryTrackList.cs" />
+    <Compile Include="Code\Tracking\ObjectTracker.cs" />
+    <Compile Include="Code\Tracking\TrackingSettings.cs" />
+    <Compile Include="Forms\Calibration\form_TableHeightCalibration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Calibration\form_TableHeightCalibration.Designer.cs">
+      <DependentUpon>form_TableHeightCalibration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSupplier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Calibration\form_TableHeightCalibration.resx">
+      <DependentUpon>form_TableHeightCalibration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToDoList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Code\Display\GUI\BeamerDisplayUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Code\Display\GUI\ScreenElements\ScreenCircle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Code\Display\GUI\ScreenElements\ScreenCrosshair.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLineArrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Code\Display\GUI\ScreenElements\ScreenLine\ScreenLineCircle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

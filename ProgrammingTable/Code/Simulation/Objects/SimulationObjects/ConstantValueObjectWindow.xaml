@@ -1,0 +1,17 @@
+﻿<Window x:Class="ProgrammingTable.Code.Simulation.Objects.SimulationObjects.ConstantValueObjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ConstantValue Object" Height="213" Width="320">
+    <Grid>
+        <Label Content="Value Type:" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <ComboBox Height="28" HorizontalAlignment="Left" Margin="89,12,0,0" Name="comboBox1" VerticalAlignment="Top" Width="146" SelectedIndex="1">
+            <ComboBoxItem Content="String" />
+            <ComboBoxItem Content="Integer" />
+            <ComboBoxItem Content="Double (Float)" />
+            <ComboBoxItem Content="Boolean" />
+        </ComboBox>
+        <Label Content="Value:" Height="28" HorizontalAlignment="Left" Margin="12,44,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="89,46,0,0" Name="txt_value" VerticalAlignment="Top" Width="146" Text="1" KeyDown="txt_value_KeyDown" />
+        <Button Content="Set" Height="30" HorizontalAlignment="Left" Margin="204,132,0,0" Name="b_set" VerticalAlignment="Top" Width="82" Click="b_set_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<KinectSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <KinectMode>Depth</KinectMode>
+  <DepthResolution>Resolution320x240</DepthResolution>
+  <VideoResolution>Resolution640x480</VideoResolution>
+</KinectSettings>

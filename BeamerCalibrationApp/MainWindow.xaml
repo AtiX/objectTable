@@ -1,0 +1,25 @@
+﻿<Window x:Class="BeamerCalibrationApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BeamerCalibration" Height="183" Width="194" xmlns:my="clr-namespace:ObjectTable;assembly=ObjectTable">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<LinearGradientBrush.RelativeTransform>
+				<TransformGroup>
+					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+					<RotateTransform Angle="6" CenterY="0.5" CenterX="0.5"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</LinearGradientBrush.RelativeTransform>
+			<GradientStop Color="#FF2DCDEB" Offset="0"/>
+			<GradientStop Color="#FF232DCE" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+    <Grid>
+    	<Button x:Name="b_kinect" Content="Kinect-Steuerung" Height="27" Margin="8,8,8,0" VerticalAlignment="Top" Click="b_kinect_Click" />
+    	<Button x:Name="b_depthcalibration" Content="Kinect Kalibrieren" Height="27" Margin="8,39,8,0" VerticalAlignment="Top" Click="b_depthcalibration_Click" />
+    	<Button x:Name="b_beamercalib" Content="Beamer Kalibrieren" Height="27" Margin="8,72,8,0" VerticalAlignment="Top" Click="b_beamercalib_Click" />
+        <Button Content="DepthMap ansehen" Height="27" Margin="8,105,8,0" Name="b_depthmap" VerticalAlignment="Top" Click="b_depthmap_Click" />
+    </Grid>
+</Window>

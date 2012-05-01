@@ -1,0 +1,21 @@
+﻿<Window x:Class="ObjectTableForms.Forms.Debug.PerformanceViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PerformanceViewer" Height="293" Width="284" Closing="Window_Closing">
+    <Grid Height="251">
+        <Label Content="Zeit zwischen DepthFrames:" Height="28" HorizontalAlignment="Left" Margin="12,9,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Dauer Objekterkennung:" Height="28" HorizontalAlignment="Left" Margin="12,43,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Dauer Rotationserkennung:" Height="28" HorizontalAlignment="Left" Margin="12,111,0,0" Name="label3" VerticalAlignment="Top" />
+        <Label Content="Dauer pro Frame:" Height="28" HorizontalAlignment="Left" Margin="12,145,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="effektive Framerate:" Height="28" HorizontalAlignment="Left" Margin="12,179,0,0" Name="label5" VerticalAlignment="Top" />
+        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,9,0,0" Name="l_depthframes" VerticalAlignment="Top" Background="#FFCEFFFB" Width="75" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,43,0,0" Name="l_recognition" VerticalAlignment="Top" Width="75" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,111,0,0" Name="l_rotation" VerticalAlignment="Top" Width="75" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,145,0,0" Name="l_frameDuration" VerticalAlignment="Top" Width="75" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,179,0,0" Name="l_framerate" VerticalAlignment="Top" Width="75" />
+        <Label Content="Dauer Tracking:" Height="28" HorizontalAlignment="Left" Margin="12,77,0,0" Name="label6" VerticalAlignment="Top" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,77,0,0" Name="l_tracking" VerticalAlignment="Top" Width="75" />
+        <Label Content="durchschnittl. Framerate:" Height="28" HorizontalAlignment="Left" Margin="12,211,0,0" Name="label7" VerticalAlignment="Top" />
+        <Label Background="#FFCEFFFB" Content="Label" Height="28" HorizontalAlignment="Left" Margin="175,211,0,0" Name="l_averageFps" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

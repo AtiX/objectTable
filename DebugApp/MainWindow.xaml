@@ -1,0 +1,10 @@
+﻿<Window x:Class="DebugApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" xmlns:my="clr-namespace:ObjectTable;assembly=ObjectTable">
+    <Grid Width="142">
+        <Button Content="Show ModCntrl" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="button1" VerticalAlignment="Top" Width="116" Click="button1_Click" />
+        <Button Content="CalibrateTable" Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="button2" VerticalAlignment="Top" Width="116" Click="button2_Click" />
+        <Button Content="View DepthImage" Height="23" HorizontalAlignment="Left" Margin="14,70,0,0" Name="b_viewdepth" VerticalAlignment="Top" Width="116" Click="b_viewdepth_Click" />
+    </Grid>
+</Window>

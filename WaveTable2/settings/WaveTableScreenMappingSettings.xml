@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ScreenMappingSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MoveX>0</MoveX>
+  <MoveY>0</MoveY>
+  <ScaleX>0</ScaleX>
+  <ScaleY>0</ScaleY>
+  <DisplayObjectScale>1</DisplayObjectScale>
+  <ColorMoveX>0</ColorMoveX>
+  <ColorMoveY>0</ColorMoveY>
+</ScreenMappingSettings>

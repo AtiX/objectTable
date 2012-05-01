@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ObjectTableForms.Forms.Debug.DepthMapViewer"
+        Title="DepthMapViewer" Height="569" Width="864" HorizontalAlignment="Left">
+    <Grid>
+    	<Grid.Background>
+    		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    			<GradientStop Color="White" Offset="0"/>
+    			<GradientStop Color="#FF67BDFF" Offset="1"/>
+    		</LinearGradientBrush>
+    	</Grid.Background>
+    	<Grid HorizontalAlignment="Left" Margin="8,8,0,0" Width="164" Background="White" Height="99" VerticalAlignment="Top">
+    		<RadioButton x:Name="rb_rawimage" Content="Raw DepthImage" Height="18" Margin="8,8,8,0" VerticalAlignment="Top" Checked="rb_rawimage_Checked" />
+    		<RadioButton x:Name="rb_correctedimage" Content="Corrected DepthImage" Height="18" Margin="8,30,8,0" VerticalAlignment="Top" Checked="rb_correctedimage_Checked" />
+            <RadioButton Content="Video" Height="18" Margin="8,54,8,0" Name="rb_video" VerticalAlignment="Top" Checked="rb_video_Checked" IsChecked="True" />
+            <RadioButton Content="Indicators only" Height="18" IsChecked="False" Margin="6,75,10,0" Name="rb_indicator" VerticalAlignment="Top" />
+        </Grid>
+    	<Grid Height="480" Margin="192.5,8,0,0" VerticalAlignment="Top" Background="Black" Width="640" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+    		<Image x:Name="img_depth" />
+            <Canvas x:Name="canvas" Opacity="0.995" />
+        </Grid>
+    	<Button x:Name="b_close" Content="Close" HorizontalAlignment="Right" Height="26" Margin="0,492,8.5,0" VerticalAlignment="Top" Width="102"/>
+        
+    </Grid>
+</Window>
